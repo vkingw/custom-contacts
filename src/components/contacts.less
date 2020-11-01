@@ -1,0 +1,143 @@
+.rightAlign {
+  text-align: right;
+}
+
+.treeLeft {
+  padding-left: 10px;
+}
+
+.card {
+  min-height: 347px;
+  max-height: 347px;
+  overflow-y: auto;
+
+  :global {
+    .ant-card-body {
+      padding: 16px 7px 7px 8px;
+    }
+
+    .ant-list-sm .ant-list-item {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+}
+
+.deptInfo {
+  height: 21px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.itemDiv {
+  width: 100%;
+
+  .checkbox {
+    float: left;
+  }
+
+  .deptName {
+    float: right;
+  }
+}
+
+.itemDiv:hover {
+  background: #E6F7FF;
+}
+
+.pagination {
+  width: 100%;
+  margin-top: 8px;
+  height: 24px;
+
+  .checkbox {
+    padding-left: 10px;
+    float: left;
+  }
+
+  .pageNoe {
+    float: right;
+  }
+}
+
+.label {
+  :global {
+    .ant-form-item-label {
+      line-height: 1;
+    }
+  }
+}
+
+.resultDiv {
+  border: 1px solid #d9d9d9;
+  background: white;
+  width: 100%;
+  min-height: 113px;
+  max-height: 113px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .deptTag {
+    color: #1890FF;
+    background-color: #E6F7FF;
+    border: 1px solid #91D5FF;
+    margin-left: 10px;
+  }
+
+  .userTag {
+    border-radius: 4px;
+    border: 1px solid rgba(230,86,83,0.20);
+    margin-left: 10px;
+    background: rgba(230,86,83,0.20);
+  }
+
+  :global {
+    .ant-form-item {
+      margin-bottom: 2px
+    }
+  }
+}
+
+.upside {
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  height: 424px;
+}
+
+.search{
+  margin-top: 24px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+:global {
+  .ant-table-thead > tr > th {
+    padding: 6px 6px 5px !important;
+    border-bottom: 0 !important;
+    background: #F5F5F5 !important;
+    font-size: 14px !important;
+    color: #666666 !important;
+    font-weight: normal !important;
+  }
+
+  .ant-table-tbody > tr > td {
+    padding: 6px 6px 5px !important;
+    border-bottom: 0 !important;
+  }
+
+  .ant-table-small {
+    border: 0 !important;
+  }
+
+  .ant-pagination-simple-pager{
+    input{
+      width: 24px;
+    }
+  }
+
+  .ant-select-dropdown-menu-item-selected{
+    color: #E65653;
+  }
+}
+
