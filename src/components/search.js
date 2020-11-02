@@ -1,4 +1,4 @@
-import {Col, Form, Input, Row, Select, TreeSelect, Radio } from "antd";
+import {Col, Form, Input, Row, Select, TreeSelect, Radio} from "antd";
 import React, {useState} from "react";
 
 import styles from './contacts.less';
@@ -6,11 +6,12 @@ import styles from './contacts.less';
 const {Option} = Select;
 const {TreeNode} = TreeSelect;
 
-const makeTreeNode = (rankClassificationData, rankClassificationValueKey, rankClassificationNameKey) => {
+const makeTreeNode = (rankClassificationData, rankClassificationValueKey, rankClassificationNameKey, rankClassification) => {
   if (rankClassificationData && rankClassificationData.length > 0) {
     return rankClassificationData.map(v => {
-      return <TreeNode icon={<Radio/>} title={v[rankClassificationNameKey]} key={v[rankClassificationValueKey]}>
-        {v.children && v.children.length > 0 && makeTreeNode(v.children, rankClassificationValueKey, rankClassificationNameKey)}
+      return <TreeNode icon={<Radio checked={v.id === rankClassification}/>} value={v[rankClassificationValueKey]}
+                       title={v[rankClassificationNameKey]} key={v[rankClassificationValueKey]}>
+        {v.children && v.children.length > 0 && makeTreeNode(v.children, rankClassificationValueKey, rankClassificationNameKey, rankClassification)}
       </TreeNode>
     })
   }
@@ -37,7 +38,6 @@ const Search = ({
   const [rank, setRank] = useState(null);
   const [name, setName] = useState(null);
   const [rankClassification, setRankClassification] = useState(null);
-
 
 
   const jobsOnSelect = (val) => {
@@ -93,7 +93,7 @@ const Search = ({
           allowClear
           onChange={rankClassificationOnChange}
         >
-          {makeTreeNode(rankClassificationData, rankClassificationValueKey, rankClassificationNameKey)}
+          {makeTreeNode(rankClassificationData, rankClassificationValueKey, rankClassificationNameKey, rankClassification)}
         </TreeSelect>
       </Col>
     </Row>

@@ -1,8 +1,13 @@
 import {Table} from "antd";
 import React, {useEffect, useState} from "react";
 
-export default ({jobsText, nameText, rankText, workNumberNumber, functionText, userData, selectUser, setSelectUser,
-                  updateSelectUsers}) => {
+import emptyImg from "./meeting_attendee_default.png";
+
+
+export default ({
+                  jobsText, nameText, rankText, workNumberNumber, functionText, userData, selectUser, setSelectUser,
+                  updateSelectUsers, tableColumnsKey,emptyTip
+                }) => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
@@ -15,27 +20,27 @@ export default ({jobsText, nameText, rankText, workNumberNumber, functionText, u
       }
     });
     setSelectedRowKeys(users);
-  }, [selectUser]);
+  }, [selectUser, userData.records]);
 
   const columns = [
     {
       title: nameText,
-      dataIndex: 'name',
+      dataIndex: tableColumnsKey[0],
     },
     {
       title: workNumberNumber,
-      dataIndex: 'workNumberNumber',
+      dataIndex: tableColumnsKey[1],
     },
     {
       title: functionText,
-      dataIndex: 'fun',
+      dataIndex: tableColumnsKey[2],
     },
     {
       title: rankText,
-      dataIndex: 'rank',
+      dataIndex: tableColumnsKey[3],
     }, {
       title: jobsText,
-      dataIndex: 'jobs',
+      dataIndex: tableColumnsKey[4],
     }
   ];
 
@@ -79,7 +84,10 @@ export default ({jobsText, nameText, rankText, workNumberNumber, functionText, u
   return (
     <div>
       <Table size={'small'} rowSelection={rowSelection} columns={columns}
-             dataSource={userData.records} pagination={false} rowKey={record => record.id}/>
-
+             dataSource={userData.records} pagination={false} rowKey={record => record.id}
+             locale={{emptyText: <div style={{marginTop:24}}><img alt={'f'} style={{width: 80, height: 80}} src={emptyImg}/><br />
+             <div style={{height:10}}/>
+             <span style={{marginTop:10}}>{emptyTip}</span></div>}}
+      />
     </div>)
 }

@@ -414,6 +414,7 @@ module.exports = function (webpackEnv) {
                       'table-selected-row-bg':'rgba(230,86,83,0.20)',
                       'checkbox-check-bg':'#E65653',
                       'checkbox-color':'#E65653',
+                      'radio-dot-color': '#E65653',
                       // 'checkbox-check-color':'#E65653',
                       'select-item-active-bg':'#F5F5F5',
                       'select-item-selected-font-weight':'normal'
@@ -445,6 +446,7 @@ module.exports = function (webpackEnv) {
                       'table-selected-row-bg':'rgba(230,86,83,0.20)',
                       'checkbox-check-bg':'#E65653',
                       'checkbox-color':'#E65653',
+                      'radio-dot-color': '#E65653',
                       // 'checkbox-check-color':'#E65653',
                       'select-item-active-bg':'#F5F5F5',
                       'select-item-selected-font-weight':'normal'

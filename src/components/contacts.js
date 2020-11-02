@@ -18,12 +18,12 @@ const Contacts = (props) => {
 
   const {
     loading = false,
-    numberColor, totalShowText, handleSearchUser, updateSelectUsers, defaultUserSelected,  searchResult,
+    numberColor, totalShowText, handleSearchUser, updateSelectUsers, defaultUserSelected, searchResult,
 
     jobsText, nameText, rankText, workNumberNumber, functionText, jobsData,
     jobsValueKey, jobsNameKey, namePlaceholder, jobsPlaceholder, rankPlaceholder, rankData,
     rankValueKey, rankNameKey, rankTipPlaceholder, rankClassificationData, rankClassificationValueKey,
-    rankClassificationNameKey
+    rankClassificationNameKey,tableColumnsKey,tableRowKey,emptyTip
   } = props;
 
   const [selectUser, setSelectUser] = useState([]);
@@ -32,7 +32,7 @@ const Contacts = (props) => {
   useEffect(() => {
     updateSelectUsers(defaultUserSelected);
     setSelectUser(defaultUserSelected);
-  }, [defaultUserSelected]);
+  }, [defaultUserSelected, updateSelectUsers]);
 
   /**
    * 按照查询form中的参数查询
@@ -75,17 +75,16 @@ const Contacts = (props) => {
    * @return {*}
    */
   const makeUserTag = v => {
-    console.log(v)
     return (
       <Tag
-        key={v.userId}
+        key={v[tableRowKey]}
         className={styles.userTag}
         onClick={e => {
           e.preventDefault();
           unCheckUser(v);
         }}
       >
-        {v.name} <Icon type="close-circle" theme="filled" style={{width: 14, height: 14, color: '#E65653'}}/>
+        {v[tableColumnsKey[0]]} <Icon type="close-circle" theme="filled" style={{width: 14, height: 14, color: '#E65653'}}/>
       </Tag>
     );
   };
@@ -119,6 +118,7 @@ const Contacts = (props) => {
     );
   };
 
+
   return (
     // <div style={{ height: '100%',width:'690px', padding:'22px 12px 10px 12px' }}>
     <div style={{height: '100%', width: '690px'}}>
@@ -136,7 +136,8 @@ const Contacts = (props) => {
 
           <UserList jobsText={jobsText} nameText={nameText} rankText={rankText} userData={searchResult}
                     functionText={functionText} workNumberNumber={workNumberNumber} selectUser={selectUser}
-                    setSelectUser={setSelectUser} updateSelectUsers={updateSelectUsers}/>
+                    setSelectUser={setSelectUser} updateSelectUsers={updateSelectUsers} tableColumnsKey={tableColumnsKey}
+                    emptyTip={emptyTip}/>
         </div>
         <div className={styles.pagination}>
           <Pagination
@@ -148,8 +149,8 @@ const Contacts = (props) => {
             onChange={handlePaginationSearch}
           />
         </div>
-        <Row style={{height:150}}>
-          <Col span={24} style={{paddingTop: 8,paddingBottom:0}}>
+        <Row style={{height: 150}}>
+          <Col span={24} style={{paddingTop: 8, paddingBottom: 0}}>
             <Form colon={false}>
               <Form.Item className={styles.label} label={makeShowMsg()}>
                 <div className={styles.resultDiv}>
@@ -174,13 +175,36 @@ Contacts.propTypes = {
   debug: PropTypes.bool,
   numberColor: PropTypes.string,
   totalShowText: PropTypes.string,
-  radioShowText: PropTypes.string,
+
+  jobsText: PropTypes.string,
+  nameText: PropTypes.string,
+  rankText: PropTypes.string,
+  workNumberNumber: PropTypes.string,
+  functionText: PropTypes.string,
+  namePlaceholder: PropTypes.string,
+  jobsPlaceholder: PropTypes.string,
+  rankPlaceholder: PropTypes.string,
+  rankTipPlaceholder: PropTypes.string,
+  jobsData: PropTypes.array,
+  jobsValueKey: PropTypes.string,
+  jobsNameKey: PropTypes.string,
+  rankData: PropTypes.array,
+  rankValueKey: PropTypes.string,
+  rankNameKey: PropTypes.string,
+  rankClassificationData: PropTypes.array,
+  rankClassificationValueKey: PropTypes.string,
+  rankClassificationNameKey: PropTypes.string, tableColumnsKey:PropTypes.array,
+  tableRowKey:PropTypes.string
 };
 
 Contacts.defaultProps = {
   loading: false,
   searchResult: {
     records: [],
+    total: 0,
+    size: 9,
+    current: 0,
+    pages: 1,
   },
   defaultUserSelected: [],
   numberColor: '#E65653',
@@ -205,6 +229,9 @@ Contacts.defaultProps = {
   rankClassificationData: [],
   rankClassificationValueKey: 'id',
   rankClassificationNameKey: 'name',
+  tableColumnsKey: ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
+  tableRowKey:'id',
+  emptyTip:'什么都没有哦~'
 };
 
 export default Contacts;
