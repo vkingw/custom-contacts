@@ -32,7 +32,7 @@ Properties  | Description | Type | Default Values
 ------------- | ------------- | --------------| ------------- 
 loading | Loading status | bool | false
 searchResult | Query user data return results （[User & Search Result Data](###User & Search Result Data)） | object | { records: []}
-handleSearchUser | Handle search user function | func | function(page, jobs, name, rank, rankClassification)
+handleSearchUser | Handle search user function | func | function(page, jobs, name, rank, rankClassification), page:Number  jobs:obj  name:String rank:obj rankClassification:Number
 updateSelectUsers | Update user list when select user | func | function(userSelected)
 defaultUserSelected   | default user selected | array | [{id:'abc',name:'CCC'}] 
 numberColor   | total number color | sring | #E65653
