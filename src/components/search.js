@@ -40,19 +40,19 @@ const Search = ({
   const [rankClassification, setRankClassification] = useState(null);
 
 
-  const jobsOnSelect = (val) => {
-    setJobs(val);
-    handleSearch(jobs, name, rank, rankClassification);
+  const jobsOnSelect = (val,option) => {
+    setJobs(option.props['obj-data']);
+    handleSearch(option.props['obj-data'], name, rank, rankClassification);
   }
 
-  const rankOnSelect = (val) => {
-    setRank(val);
-    handleSearch(jobs, name, rank, rankClassification);
+  const rankOnSelect = (val,option) => {
+    setRank(option.props['obj-data']);
+    handleSearch(jobs, name, option.props['obj-data'], rankClassification);
   }
 
   const nameSearch = (val) => {
     setName(val);
-    handleSearch(jobs, name, rank, rankClassification);
+    handleSearch(jobs, val, rank, rankClassification);
   }
 
   const rankClassificationOnChange = (val) => {
@@ -65,7 +65,7 @@ const Search = ({
       <Col span={12} style={{height: 50}}>
         <Form.Item label={jobsText}>
           <Select style={{width: 279}} placeholder={jobsPlaceholder} onSelect={jobsOnSelect}>
-            {jobsData && jobsData.map(v => <Option value={v[jobsValueKey]}
+            {jobsData && jobsData.map(v => <Option value={v[jobsValueKey]} obj-data={v}
                                                    key={v[jobsValueKey]}>{v[jobsNameKey]}</Option>)}
           </Select>
         </Form.Item>
