@@ -6,7 +6,7 @@ import emptyImg from "./meeting_attendee_default.png";
 
 export default ({
                   jobsText, nameText, rankText, workNumberNumber, functionText, userData, selectUser, setSelectUser,
-                  updateSelectUsers, tableColumnsKey,emptyTip
+                  updateSelectUsers, tableColumnsKey,emptyTip,tableRowKey
                 }) => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -14,7 +14,7 @@ export default ({
   useEffect(() => {
     const users = [];
     userData.records.forEach((v, index) => {
-      const tmp = selectUser.find(user => user.id === v.id);
+      const tmp = selectUser.find(user => user[tableRowKey] === v[tableRowKey]);
       if (tmp) {
         users.push(index);
       }
@@ -68,7 +68,7 @@ export default ({
       setSelectUser(newList);
       updateSelectUsers(newList);
     } else {
-      const result = selectUser.filter(value => value.id !== record.id);
+      const result = selectUser.filter(value => value[tableRowKey] !== record[tableRowKey]);
       setSelectUser(result);
       updateSelectUsers(result)
     }
@@ -84,7 +84,7 @@ export default ({
   return (
     <div>
       <Table size={'small'} rowSelection={rowSelection} columns={columns}
-             dataSource={userData.records} pagination={false} rowKey={record => record.id}
+             dataSource={userData.records} pagination={false} rowKey={record => record[tableRowKey]}
              locale={{emptyText: <div style={{marginTop:24}}><img alt={'f'} style={{width: 80, height: 80}} src={emptyImg}/><br />
              <div style={{height:10}}/>
              <span style={{marginTop:10}}>{emptyTip}</span></div>}}

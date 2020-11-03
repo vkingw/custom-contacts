@@ -153,7 +153,7 @@ const Contacts = (props) => {
                     functionText={functionText} workNumberNumber={workNumberNumber} selectUser={selectUser}
                     setSelectUser={setSelectUser} updateSelectUsers={updateSelectUsers}
                     tableColumnsKey={tableColumnsKey}
-                    emptyTip={emptyTip}/>
+                    emptyTip={emptyTip} tableRowKey={tableRowKey}/>
         </div>
         <div className={styles.pagination}>
           <Pagination
