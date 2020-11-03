@@ -81,7 +81,7 @@ const Search = ({
       <Col span={12} style={{height: 50}}>
         <Form.Item label={rankText}>
           <Select style={{width: 279}} placeholder={rankPlaceholder} onSelect={rankOnSelect}>
-            {rankData && rankData.map(v => <Option value={v[rankValueKey]}
+            {rankData && rankData.map(v => <Option value={v[rankValueKey]} obj-data={v}
                                                    key={v[rankValueKey]}>{v[rankNameKey]}</Option>)}
           </Select>
         </Form.Item>

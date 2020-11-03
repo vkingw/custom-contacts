@@ -42,7 +42,7 @@ ReactDOM.render(<div className="App"
               defaultUserSelected={users}
               // searchResult={[]}
               updateSelectUsers={updateSelectUsers} handleSearchUser={() => userList} updateSelectDept={updateSelectDept}
-              rankData={[]} jobsData={jobsData} rankClassificationData={deptTree}
+              rankData={jobsData} jobsData={jobsData} rankClassificationData={deptTree}
     />
   </div>
 </div>, document.getElementById('root'));
