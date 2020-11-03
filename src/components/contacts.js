@@ -18,13 +18,27 @@ const Contacts = (props) => {
 
   const {
     loading = false,
-    numberColor, totalShowText, handleSearchUser, updateSelectUsers, defaultUserSelected, searchResult,
+    numberColor, totalShowText, handleSearchUser, updateSelectUsers, defaultUserSelected,
 
     jobsText, nameText, rankText, workNumberNumber, functionText, jobsData,
     jobsValueKey, jobsNameKey, namePlaceholder, jobsPlaceholder, rankPlaceholder, rankData,
     rankValueKey, rankNameKey, rankTipPlaceholder, rankClassificationData, rankClassificationValueKey,
-    rankClassificationNameKey,tableColumnsKey,tableRowKey,emptyTip
+    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip
   } = props;
+
+  /**
+   * 处理查询结果为空
+   */
+  let {searchResult} = props;
+  if (!searchResult || !searchResult.hasOwnProperty('size')) {
+    searchResult = {
+      records: [],
+      total: 0,
+      size: 9,
+      current: 0,
+      pages: 1,
+    }
+  }
 
   const [selectUser, setSelectUser] = useState([]);
   const [searchKey, setSearchKey] = useState(null);
@@ -84,7 +98,8 @@ const Contacts = (props) => {
           unCheckUser(v);
         }}
       >
-        {v[tableColumnsKey[0]]} <Icon type="close-circle" theme="filled" style={{width: 14, height: 14, color: '#E65653'}}/>
+        {v[tableColumnsKey[0]]} <Icon type="close-circle" theme="filled"
+                                      style={{width: 14, height: 14, color: '#E65653'}}/>
       </Tag>
     );
   };
@@ -136,7 +151,8 @@ const Contacts = (props) => {
 
           <UserList jobsText={jobsText} nameText={nameText} rankText={rankText} userData={searchResult}
                     functionText={functionText} workNumberNumber={workNumberNumber} selectUser={selectUser}
-                    setSelectUser={setSelectUser} updateSelectUsers={updateSelectUsers} tableColumnsKey={tableColumnsKey}
+                    setSelectUser={setSelectUser} updateSelectUsers={updateSelectUsers}
+                    tableColumnsKey={tableColumnsKey}
                     emptyTip={emptyTip}/>
         </div>
         <div className={styles.pagination}>
@@ -193,8 +209,8 @@ Contacts.propTypes = {
   rankNameKey: PropTypes.string,
   rankClassificationData: PropTypes.array,
   rankClassificationValueKey: PropTypes.string,
-  rankClassificationNameKey: PropTypes.string, tableColumnsKey:PropTypes.array,
-  tableRowKey:PropTypes.string
+  rankClassificationNameKey: PropTypes.string, tableColumnsKey: PropTypes.array,
+  tableRowKey: PropTypes.string
 };
 
 Contacts.defaultProps = {
@@ -230,8 +246,8 @@ Contacts.defaultProps = {
   rankClassificationValueKey: 'id',
   rankClassificationNameKey: 'name',
   tableColumnsKey: ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
-  tableRowKey:'id',
-  emptyTip:'什么都没有哦~'
+  tableRowKey: 'id',
+  emptyTip: '什么都没有哦~'
 };
 
 export default Contacts;

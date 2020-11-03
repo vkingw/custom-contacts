@@ -40,7 +40,7 @@ ReactDOM.render(<div className="App"
   <div style={{ height: '100%', width:690 }}>
     <Contacts users={userList} loading={false}
               defaultUserSelected={users}
-              // searchResult={[]}
+              searchResult={null}
               updateSelectUsers={updateSelectUsers} handleSearchUser={() => userList} updateSelectDept={updateSelectDept}
               rankData={jobsData} jobsData={jobsData} rankClassificationData={deptTree}
     />
