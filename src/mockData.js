@@ -59,7 +59,7 @@ export const deptTree = [{
 
 const tmp =[]
 
-for (let i = 0; i < 8 ; i++) {
+for (let i = 0; i < 9 ; i++) {
   tmp.push( {
     userId: 1,
     id:i,
