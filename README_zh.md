@@ -29,7 +29,7 @@ import Contacts from 'infinitus-custom-contacts';
 ------------- | ------------- | --------------| ------------- 
 loading | 加载状态 | bool | false
 searchResult | 用户查询结果 （[数据](###用户和搜索结果数据)） | object | { records: []}
-handleSearchUser | 搜索用户和反应回调 | func | function(page, jobs, name, rank, rankClassification), page:Number  jobs:obj  name:String rank:obj rankClassification:Number
+handleSearchUser | 搜索用户和反应回调 | func | function(page, jobs, name, rank, rankClassification), page:Number  jobs:obj  name:String rank:obj rankClassification:obj
 updateSelectUsers | 更新选定用户数据 | func | function(userSelected)
 defaultUserSelected   | 默认选择用户 | array | [{userId:'abc',username:'CCC'}] 
 numberColor   | 选择的总数字颜色 | sring | #1B9AFF 

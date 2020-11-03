@@ -41,13 +41,15 @@ const Search = ({
 
 
   const jobsOnSelect = (val,option) => {
-    setJobs(option.props['obj-data']);
-    handleSearch(option.props['obj-data'], name, rank, rankClassification);
+    const obj = option.props['obj-data'];
+    setJobs(obj);
+    handleSearch(obj, name, rank, rankClassification);
   }
 
   const rankOnSelect = (val,option) => {
-    setRank(option.props['obj-data']);
-    handleSearch(jobs, name, option.props['obj-data'], rankClassification);
+    const obj = option.props['obj-data'];
+    setRank(obj);
+    handleSearch(jobs, name, obj, rankClassification);
   }
 
   const nameSearch = (val) => {
@@ -55,9 +57,12 @@ const Search = ({
     handleSearch(jobs, val, rank, rankClassification);
   }
 
-  const rankClassificationOnChange = (val) => {
-    setRankClassification(val);
-    handleSearch(jobs, name, rank, rankClassification);
+  const rankClassificationOnChange = (val,label) => {
+    const obj = {};
+    obj[rankClassificationValueKey]=val;
+    obj[rankClassificationNameKey]=label.length>0?label[0]:null;
+    setRankClassification(obj);
+    handleSearch(jobs, name, rank, obj);
   }
 
   return <Form {...formItemLayout} className={styles.search}>
