@@ -59,6 +59,8 @@ rankClassificationNameKey   | rankClassification select name | string | 'name'
 tableColumnsKey   | The query result table columns corresponds to dataIndex, please note that the first name and data echo also correspond | array |  ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
 tableRowKey   | table row key，This value corresponds to the data echo| string | 'id' 
 emptyTip   | table empty tip | string | '什么都没有哦~'
+showTagKey   | defaultUserSelected data of key | string | 'workNumber'
+showTagName   | defaultUserSelected data of name key  | string | 'realName'
 
 ### 职级分类或级别数据结构
 

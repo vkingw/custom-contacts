@@ -20,7 +20,7 @@ export default ({
       }
     });
     setSelectedRowKeys(users);
-  }, [selectUser ]);
+  }, [selectUser, tableRowKey, userData.records]);
 
   const columns = [
     {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Contacts from '../components/contacts';
-import { deptTree, userList,us } from '../mockData';
+import { deptTree, userList,us,defaultSelect } from '../mockData';
 
 const updateSelectUsers = userList => {
   console.log(userList)
@@ -11,22 +11,11 @@ const updateSelectDept = deptList => {
   console.log(deptList)
 };
 
-const users = [
-  { id: 1,name:'admin1' }
-];
-
 const jobsData = [
   {id:1,name:'abc'},
   {id:2,name:'abc1'},
   {id:3,name:'abc1'},
   {id:41,name:'abc1'},
-]
-
-const rankData = [
-  {id:12,name:'abc'},
-  {id:22,name:'abc1'},
-  {id:32,name:'abc1'},
-  {id:412,name:'abc1'},
 ]
 
 ReactDOM.render(<div className="App"
@@ -39,11 +28,11 @@ ReactDOM.render(<div className="App"
   </p>
   <div style={{ height: '100%', width:690 }}>
     <Contacts loading={false}
-              defaultUserSelected={users}
+              defaultUserSelected={defaultSelect}
               searchResult={us}
               updateSelectUsers={updateSelectUsers} handleSearchUser={() => userList} updateSelectDept={updateSelectDept}
               rankData={jobsData} jobsData={jobsData} rankClassificationData={deptTree}
-              tableColumnsKey={['accountName', 'workNumberNumber', 'fun', 'rank', 'jobs']}
+              tableColumnsKey={['chsName', 'accountName', 'orgName', 'gradeType', 'positionName']}
               tableRowKey={'accountName'}
     />
   </div>

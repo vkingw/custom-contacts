@@ -31,7 +31,7 @@ loading | 加载状态 | bool | false
 searchResult | 用户查询结果 （[数据](###用户和搜索结果数据)） | object | { records: []}
 handleSearchUser | 搜索用户和反应回调 | func | function(page, jobs, name, rank, rankClassification), page:Number  jobs:obj  name:String rank:obj rankClassification:obj
 updateSelectUsers | 更新选定用户数据 | func | function(userSelected)
-defaultUserSelected   | 默认选择用户 | array | [{userId:'abc',username:'CCC'}] 
+defaultUserSelected   | 默认选择用户 | array | [{id:'abc',name:'CCC'}] 
 numberColor   | 选择的总数字颜色 | sring | #1B9AFF 
 totalShowText   | 选择的总数文字 | string | 共选择了$个 
 jobsText   | 岗位显示名称 | string | '岗位' 
@@ -55,6 +55,8 @@ rankClassificationNameKey   | 职级分类或级别显示名称的key | string |
 tableColumnsKey   | 查询结果table columns 对应 dataIndex,请注意第一个name和数据回显也对应 | array |  ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
 tableRowKey   | table row key，此值和数据回显也对应 | string | 'id' 
 emptyTip   | table 空数据提示 | string | '什么都没有哦~'
+showTagKey   | defaultUserSelected数据中key | string | 'workNumber'
+showTagName   | defaultUserSelected数据中name对应的key  | string | 'realName'
 
 
 ### 职级分类或级别数据结构
