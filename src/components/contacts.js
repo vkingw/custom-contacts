@@ -110,7 +110,7 @@ const Contacts = (props) => {
    */
   const unCheckUser = data => {
     const tmp = [];
-    const result = selectUser.filter(value => value.userId !== data.userId);
+    const result = selectUser.filter(value => value[tableRowKey] !== data[tableRowKey]);
     const userList = result.concat(tmp);
     updateSelectUsers(userList);
     setSelectUser(userList);

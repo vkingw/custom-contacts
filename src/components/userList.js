@@ -16,11 +16,11 @@ export default ({
     userData.records.forEach((v, index) => {
       const tmp = selectUser.find(user => user[tableRowKey] === v[tableRowKey]);
       if (tmp) {
-        users.push(index);
+        users.push(tmp[tableRowKey]);
       }
     });
     setSelectedRowKeys(users);
-  }, [selectUser, userData.records]);
+  }, [selectUser ]);
 
   const columns = [
     {
@@ -44,20 +44,23 @@ export default ({
     }
   ];
 
-  const onSelectChange = (selectedRowKeysParam, selectedRows) => {
-    // if(selectedRowKeys.length > selectedRowKeysParam.length ){
-    //   const delList = [];
-    //     selectedRowKeys.forEach(v=>{
-    //       const tmp = selectedRowKeysParam.find(user=>v.id === user.id);
-    //       if(!tmp){
-    //         delList.push(v);
-    //       }
-    //     });
-    //     delList.forEach()
-    // }else {
-    //
-    // }
-    // setSelectedRowKeys(selectedRowKeysParam);
+  const onSelectAll=(selected, selectedRows, changeRows)=>{
+    if(selected){
+      const tmp = [];
+      changeRows.forEach(record=>{
+        tmp.push(record);
+      })
+      const newList = selectUser.concat(tmp);
+      setSelectUser(newList);
+      updateSelectUsers(newList);
+    }else {
+      let result = selectUser;
+      changeRows.forEach(record=>{
+        result = result.filter(value => value[tableRowKey] !== record[tableRowKey]);
+      })
+      setSelectUser(result);
+      updateSelectUsers(result)
+    }
   }
 
   const onSelect = (record, selected) => {
@@ -76,8 +79,8 @@ export default ({
 
   const rowSelection = {
     selectedRowKeys,
-    onChange: onSelectChange,
     onSelect: onSelect,
+    onSelectAll:onSelectAll,
     columnWidth: 20
   };
 

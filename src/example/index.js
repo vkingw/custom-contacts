@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Contacts from '../components/contacts';
-import { deptTree, userList } from '../mockData';
+import { deptTree, userList,us } from '../mockData';
 
 const updateSelectUsers = userList => {
   console.log(userList)
@@ -38,11 +38,13 @@ ReactDOM.render(<div className="App"
     To get started, edit <code>src/App.js</code> and save to reload.
   </p>
   <div style={{ height: '100%', width:690 }}>
-    <Contacts users={userList} loading={false}
+    <Contacts loading={false}
               defaultUserSelected={users}
-              searchResult={userList}
+              searchResult={us}
               updateSelectUsers={updateSelectUsers} handleSearchUser={() => userList} updateSelectDept={updateSelectDept}
               rankData={jobsData} jobsData={jobsData} rankClassificationData={deptTree}
+              tableColumnsKey={['accountName', 'workNumberNumber', 'fun', 'rank', 'jobs']}
+              tableRowKey={'accountName'}
     />
   </div>
 </div>, document.getElementById('root'));

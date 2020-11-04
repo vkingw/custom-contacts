@@ -57,12 +57,12 @@ export const deptTree = [{
   name: '山东农信',
 }];
 
-const tmp =[]
+const tmp = []
 
-for (let i = 0; i < 9 ; i++) {
-  tmp.push( {
+for (let i = 0; i < 9; i++) {
+  tmp.push({
     userId: 1,
-    id:i,
+    id: i,
     name: 'admin',
     password: '$2a$10$QOfWxxFyAMmEEmnuw9UI/..1s4B4eF/u9PzE2ZaGO.ij9YfmcUy.u',
     salt: null,
@@ -102,3 +102,97 @@ export const userList = {
   searchCount: true,
   pages: 1,
 };
+
+export const us = {
+  "records": [{
+    "adAccount": "cam_gan",
+    "accountName": "3160",
+    "chsName": "甘露",
+    "engName": "Cam",
+    "gradeName": "高级主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "副总裁助理（高级主任）",
+    "orgName": "市场"
+  }, {
+    "adAccount": "yuki_kong",
+    "accountName": "1104",
+    "chsName": "江雪琦",
+    "engName": "Xueqi",
+    "gradeName": "高级主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "无限极全球行政总裁助理（高级主任）",
+    "orgName": "无限极全球"
+  }, {
+    "adAccount": "genies_ou",
+    "accountName": "1250",
+    "chsName": "欧婕寰",
+    "engName": "Genies",
+    "gradeName": "高级主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "副总裁助理（高级主任）",
+    "orgName": "产品供应"
+  }, {
+    "adAccount": "qiong_zeng",
+    "accountName": "5085",
+    "chsName": "曾琼",
+    "engName": "Judy",
+    "gradeName": "主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "高级副总裁助理（主任）",
+    "orgName": "无限极全球"
+  }, {
+    "adAccount": "XiaoQing.Dong",
+    "accountName": "5807",
+    "chsName": "董晓青",
+    "engName": "Carol",
+    "gradeName": "副主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "行政支持副主任",
+    "orgName": "广州无限极广场"
+  }, {
+    "adAccount": "amy_liu",
+    "accountName": "5601",
+    "chsName": "刘淡真",
+    "engName": "Amy",
+    "gradeName": "高级主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "项目支持高级主任",
+    "orgName": "快消品售后服务"
+  }, {
+    "adAccount": "huiyi_liu",
+    "accountName": "5710",
+    "chsName": "刘慧仪",
+    "engName": "Chris",
+    "gradeName": "高级主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "高级副总裁助理（高级主任）",
+    "orgName": "区域管理及外事"
+  }, {
+    "adAccount": "Yoyo.Zhang",
+    "accountName": "5855",
+    "chsName": "张碧怡",
+    "engName": "Yoyo",
+    "gradeName": "高级主任",
+    "gradeType": "主任级",
+    "positionType": 0,
+    "positionName": "副总裁助理（高级主任）",
+    "orgName": "行政支援"
+  }, {
+    "adAccount": "Vanessa.Siu",
+    "accountName": "0008495",
+    "chsName": "蕭子君",
+    "engName": "Vanessa",
+    "gradeName": "主任",
+    "gradeType": "",
+    "positionType": 0,
+    "positionName": "总裁助理",
+    "orgName": "爽乐行政总裁办公室"
+  }], "total": 15, "size": 9, "current": 1, "searchCount": true, "pages": 2
+}
