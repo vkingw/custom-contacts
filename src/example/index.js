@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Contacts from '../components/contacts';
-import { deptTree, userList,us,defaultSelect } from '../mockData';
+import {  userList,us,defaultSelect,tree } from '../mockData';
 
 const updateSelectUsers = userList => {
   console.log(userList)
@@ -31,7 +31,7 @@ ReactDOM.render(<div className="App"
               defaultUserSelected={defaultSelect}
               searchResult={us}
               updateSelectUsers={updateSelectUsers} handleSearchUser={() => userList} updateSelectDept={updateSelectDept}
-              rankData={jobsData} jobsData={jobsData} rankClassificationData={deptTree}
+              rankData={jobsData} jobsData={jobsData} rankClassificationData={tree}
               tableColumnsKey={['chsName', 'accountName', 'orgName', 'gradeType', 'positionName']}
               tableRowKey={'accountName'}
     />

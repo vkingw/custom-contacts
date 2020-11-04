@@ -55,9 +55,6 @@ rankClassificationNameKey   | 职级分类或级别显示名称的key | string |
 tableColumnsKey   | 查询结果table columns 对应 dataIndex,请注意第一个name和数据回显也对应 | array |  ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
 tableRowKey   | table row key，此值和数据回显也对应 | string | 'id' 
 emptyTip   | table 空数据提示 | string | '什么都没有哦~'
-showTagKey   | defaultUserSelected数据中key | string | 'workNumber'
-showTagName   | defaultUserSelected数据中name对应的key  | string | 'realName'
-
 
 ### 职级分类或级别数据结构
 

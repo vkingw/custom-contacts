@@ -9,7 +9,7 @@ const {TreeNode} = TreeSelect;
 const makeTreeNode = (rankClassificationData, rankClassificationValueKey, rankClassificationNameKey, rankClassification) => {
   if (rankClassificationData && rankClassificationData.length > 0) {
     return rankClassificationData.map(v => {
-      return <TreeNode obj-data={v} icon={<Radio checked={v.id === rankClassification}/>} value={v[rankClassificationValueKey]}
+      return <TreeNode obj-data={v} icon={<Radio checked={rankClassification && v[rankClassificationValueKey] === rankClassification.id}/>} value={v[rankClassificationValueKey]}
                        title={v[rankClassificationNameKey]} key={v[rankClassificationValueKey]}>
         {v.children && v.children.length > 0 && makeTreeNode(v.children, rankClassificationValueKey, rankClassificationNameKey, rankClassification)}
       </TreeNode>
@@ -58,9 +58,13 @@ const Search = ({
   }
 
   const rankClassificationOnChange = (val,label,extra) => {
-    const obj = extra.triggerNode.props['obj-data'];
-    setRankClassification(obj);
-    handleSearch(jobs, name, rank, obj);
+    if(extra.triggerNode){
+      const obj = extra.triggerNode.props['obj-data'];
+      setRankClassification(obj);
+      handleSearch(jobs, name, rank, obj);
+    }else {
+      setRankClassification(null);
+    }
   }
 
   return <Form {...formItemLayout} className={styles.search}>

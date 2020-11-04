@@ -23,7 +23,7 @@ const Contacts = (props) => {
     jobsText, nameText, rankText, workNumberNumber, functionText, jobsData,
     jobsValueKey, jobsNameKey, namePlaceholder, jobsPlaceholder, rankPlaceholder, rankData,
     rankValueKey, rankNameKey, rankTipPlaceholder, rankClassificationData, rankClassificationValueKey,
-    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip,  showTagKey, showTagName
+    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip
   } = props;
 
   /**
@@ -44,14 +44,9 @@ const Contacts = (props) => {
   const [searchKey, setSearchKey] = useState(null);
 
   useEffect(() => {
-    const defaultUser = defaultUserSelected.map(v=>{
-      v[tableRowKey]=v[showTagKey];
-      v[tableColumnsKey[0]]=v[showTagName];
-      return v;
-    })
-    updateSelectUsers(defaultUser);
-    setSelectUser(defaultUser);
-  }, [defaultUserSelected, showTagKey, showTagName, tableColumnsKey, tableRowKey, updateSelectUsers]);
+    updateSelectUsers(defaultUserSelected);
+    setSelectUser(defaultUserSelected);
+  }, [defaultUserSelected, updateSelectUsers]);
 
   /**
    * 按照查询form中的参数查询
@@ -217,8 +212,6 @@ Contacts.propTypes = {
   rankClassificationNameKey: PropTypes.string, tableColumnsKey: PropTypes.array,
   tableRowKey: PropTypes.string,
   emptyTip: PropTypes.string,
-  showTagKey:PropTypes.string,
-  showTagName:PropTypes.string,
 };
 
 Contacts.defaultProps = {
@@ -256,8 +249,6 @@ Contacts.defaultProps = {
   tableColumnsKey: ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
   tableRowKey: 'id',
   emptyTip: '什么都没有哦~',
-  showTagKey:'workNumber',
-  showTagName:'realName'
 };
 
 export default Contacts;
