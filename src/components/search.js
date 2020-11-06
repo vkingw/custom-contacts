@@ -31,7 +31,7 @@ const formItemLayout = {
 const Search = ({
                   jobsText, rankText, nameText, jobsData, jobsValueKey, jobsNameKey, namePlaceholder,
                   jobsPlaceholder, rankPlaceholder, rankData, rankValueKey, rankNameKey, rankTipPlaceholder,
-                  rankClassificationData, rankClassificationValueKey, rankClassificationNameKey, handleSearch
+                  rankClassificationData, rankClassificationValueKey, rankClassificationNameKey, handleSearch,allowSelectClear
                 }) => {
 
   const [jobs, setJobs] = useState(null);
@@ -71,7 +71,7 @@ const Search = ({
     <Row>
       <Col span={12} style={{height: 50}}>
         <Form.Item label={jobsText}>
-          <Select style={{width: 279}} placeholder={jobsPlaceholder} onSelect={jobsOnSelect}>
+          <Select style={{width: 279}} placeholder={jobsPlaceholder} onSelect={jobsOnSelect} allowClear={allowSelectClear}>
             {jobsData && jobsData.map(v => <Option value={v[jobsValueKey]} obj-data={v}
                                                    key={v[jobsValueKey]}>{v[jobsNameKey]}</Option>)}
           </Select>
@@ -84,7 +84,7 @@ const Search = ({
       </Col>
       <Col span={12} style={{height: 50}}>
         <Form.Item label={rankText}>
-          <Select style={{width: 279}} placeholder={rankPlaceholder} onSelect={rankOnSelect}>
+          <Select style={{width: 279}} placeholder={rankPlaceholder} onSelect={rankOnSelect} allowClear={allowSelectClear}>
             {rankData && rankData.map(v => <Option value={v[rankValueKey]} obj-data={v}
                                                    key={v[rankValueKey]}>{v[rankNameKey]}</Option>)}
           </Select>

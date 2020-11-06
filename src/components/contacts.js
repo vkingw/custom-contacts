@@ -23,7 +23,7 @@ const Contacts = (props) => {
     jobsText, nameText, rankText, workNumberNumber, functionText, jobsData,
     jobsValueKey, jobsNameKey, namePlaceholder, jobsPlaceholder, rankPlaceholder, rankData,
     rankValueKey, rankNameKey, rankTipPlaceholder, rankClassificationData, rankClassificationValueKey,
-    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip
+    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip,allowSelectClear
   } = props;
 
   /**
@@ -146,7 +146,7 @@ const Contacts = (props) => {
                   rankClassificationData={rankClassificationData}
                   rankClassificationValueKey={rankClassificationValueKey}
                   rankClassificationNameKey={rankClassificationNameKey}
-                  handleSearch={handleSearch}/>
+                  handleSearch={handleSearch} allowSelectClear={allowSelectClear}/>
 
 
           <UserList jobsText={jobsText} nameText={nameText} rankText={rankText} userData={searchResult}
@@ -212,6 +212,7 @@ Contacts.propTypes = {
   rankClassificationNameKey: PropTypes.string, tableColumnsKey: PropTypes.array,
   tableRowKey: PropTypes.string,
   emptyTip: PropTypes.string,
+  allowSelectClear:PropTypes.bool
 };
 
 Contacts.defaultProps = {
@@ -249,6 +250,7 @@ Contacts.defaultProps = {
   tableColumnsKey: ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
   tableRowKey: 'id',
   emptyTip: '什么都没有哦~',
+  allowSelectClear:true
 };
 
 export default Contacts;
