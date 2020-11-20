@@ -6,7 +6,7 @@ import emptyImg from "./meeting_attendee_default.png";
 
 export default ({
                   jobsText, nameText, rankText, workNumberNumber, functionText, userData, selectUser, setSelectUser,
-                  updateSelectUsers, tableColumnsKey,emptyTip,tableRowKey
+                  updateSelectUsers, tableColumnsKey, emptyTip, tableRowKey, tableCheckboxDisabled
                 }) => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -44,18 +44,18 @@ export default ({
     }
   ];
 
-  const onSelectAll=(selected, selectedRows, changeRows)=>{
-    if(selected){
+  const onSelectAll = (selected, selectedRows, changeRows) => {
+    if (selected) {
       const tmp = [];
-      changeRows.forEach(record=>{
+      changeRows.forEach(record => {
         tmp.push(record);
       })
       const newList = selectUser.concat(tmp);
       setSelectUser(newList);
       updateSelectUsers(newList);
-    }else {
+    } else {
       let result = selectUser;
-      changeRows.forEach(record=>{
+      changeRows.forEach(record => {
         result = result.filter(value => value[tableRowKey] !== record[tableRowKey]);
       })
       setSelectUser(result);
@@ -80,17 +80,26 @@ export default ({
   const rowSelection = {
     selectedRowKeys,
     onSelect: onSelect,
-    onSelectAll:onSelectAll,
-    columnWidth: 20
+    onSelectAll: onSelectAll,
+    columnWidth: 20,
+    getCheckboxProps: record => {
+      if (tableCheckboxDisabled.length === 0) {
+        return {disabled: false}
+      }
+      return {disabled: tableCheckboxDisabled.indexOf(record[tableRowKey]) !== -1}
+    }
   };
 
   return (
     <div>
       <Table size={'small'} rowSelection={rowSelection} columns={columns}
              dataSource={userData.records} pagination={false} rowKey={record => record[tableRowKey]}
-             locale={{emptyText: <div style={{marginTop:24}}><img alt={'f'} style={{width: 80, height: 80}} src={emptyImg}/><br />
-             <div style={{height:10}}/>
-             <span style={{marginTop:10}}>{emptyTip}</span></div>}}
+             locale={{
+               emptyText: <div style={{marginTop: 24}}><img alt={'f'} style={{width: 80, height: 80}}
+                                                            src={emptyImg}/><br/>
+                 <div style={{height: 10}}/>
+                 <span style={{marginTop: 10}}>{emptyTip}</span></div>
+             }}
       />
     </div>)
 }

@@ -33,7 +33,7 @@ ReactDOM.render(<div className="App"
               updateSelectUsers={updateSelectUsers} handleSearchUser={() => userList} updateSelectDept={updateSelectDept}
               rankData={jobsData} jobsData={jobsData} rankClassificationData={tree}
               tableColumnsKey={['chsName', 'accountName', 'orgName', 'gradeType', 'positionName']}
-              tableRowKey={'accountName'}
+              tableRowKey={'accountName'} tableCheckboxDisabled={['5601']}
     />
   </div>
 </div>, document.getElementById('root'));

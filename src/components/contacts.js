@@ -23,7 +23,7 @@ const Contacts = (props) => {
     jobsText, nameText, rankText, workNumberNumber, functionText, jobsData,
     jobsValueKey, jobsNameKey, namePlaceholder, jobsPlaceholder, rankPlaceholder, rankData,
     rankValueKey, rankNameKey, rankTipPlaceholder, rankClassificationData, rankClassificationValueKey,
-    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip,allowSelectClear
+    rankClassificationNameKey, tableColumnsKey, tableRowKey, emptyTip,allowSelectClear,tableCheckboxDisabled
   } = props;
 
   /**
@@ -153,7 +153,7 @@ const Contacts = (props) => {
                     functionText={functionText} workNumberNumber={workNumberNumber} selectUser={selectUser}
                     setSelectUser={setSelectUser} updateSelectUsers={updateSelectUsers}
                     tableColumnsKey={tableColumnsKey}
-                    emptyTip={emptyTip} tableRowKey={tableRowKey}/>
+                    emptyTip={emptyTip} tableRowKey={tableRowKey} tableCheckboxDisabled={tableCheckboxDisabled}/>
         </div>
         <div className={styles.pagination}>
           <Pagination
@@ -212,7 +212,8 @@ Contacts.propTypes = {
   rankClassificationNameKey: PropTypes.string, tableColumnsKey: PropTypes.array,
   tableRowKey: PropTypes.string,
   emptyTip: PropTypes.string,
-  allowSelectClear:PropTypes.bool
+  allowSelectClear:PropTypes.bool,
+  tableCheckboxDisabled:PropTypes.array
 };
 
 Contacts.defaultProps = {
@@ -248,6 +249,7 @@ Contacts.defaultProps = {
   rankClassificationValueKey: 'id',
   rankClassificationNameKey: 'name',
   tableColumnsKey: ['name', 'workNumberNumber', 'fun', 'rank', 'jobs'],
+  tableCheckboxDisabled:[],
   tableRowKey: 'id',
   emptyTip: '什么都没有哦~',
   allowSelectClear:true
