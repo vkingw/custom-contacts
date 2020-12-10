@@ -1,6 +1,7 @@
 import {Table} from "antd";
 import React, {useEffect, useState} from "react";
 
+import styles from './contacts.less';
 import emptyImg from "./meeting_attendee_default.png";
 
 
@@ -91,7 +92,7 @@ export default ({
   };
 
   return (
-    <div>
+    <div className={styles.userList}>
       <Table size={'small'} rowSelection={rowSelection} columns={columns}
              dataSource={userData.records} pagination={false} rowKey={record => record[tableRowKey]}
              locale={{
