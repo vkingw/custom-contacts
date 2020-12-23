@@ -93,7 +93,7 @@ export default ({
 
   return (
     <div className={styles.userList}>
-      <Table size={'small'} rowSelection={rowSelection} columns={columns}
+      <Table size={'small'} rowSelection={rowSelection} columns={columns} style={{height:320,overflowY:'auto'}}
              dataSource={userData.records} pagination={false} rowKey={record => record[tableRowKey]}
              locale={{
                emptyText: <div style={{marginTop: 24}}><img alt={'f'} style={{width: 80, height: 80}}
